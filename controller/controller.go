@@ -16,7 +16,7 @@ func GetUsers(c *gin.Context) {
 		c.AbortWithStatus(http.StatusNotFound)
 		return
 	}
-	c.JSON(http.StatusOK, user)
+	c.JSON(http.StatusOK, gin.H{"data": user})
 }
 
 //CreateUser ... Create User
@@ -28,7 +28,7 @@ func CreateUser(c *gin.Context) {
 		c.AbortWithStatus(http.StatusNotFound)
 		return
 	}
-	c.JSON(http.StatusOK, user)
+	c.JSON(http.StatusOK, gin.H{"message": "success"})
 }
 
 //GetUserByID ... Get the user by id
@@ -40,5 +40,5 @@ func GetUserByID(c *gin.Context) {
 		c.AbortWithStatus(http.StatusNotFound)
 		return
 	}
-	c.JSON(http.StatusOK, user)
+	c.JSON(http.StatusOK, gin.H{"data": user})
 }

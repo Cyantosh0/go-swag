@@ -16,8 +16,8 @@ func main() {
 		log.Fatalf("Error loading .env file")
 	}
 
-	db := config.SetupDatabase()
-	db.AutoMigrate(&model.User{})
+	config.DB = config.SetupDatabase()
+	config.DB.AutoMigrate(&model.User{})
 
 	r := route.SetupRouter()
 	r.Run()
