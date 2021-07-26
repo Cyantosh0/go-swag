@@ -2,22 +2,22 @@ package main
 
 import (
 	"Cyantosh0/go-swag/config"
+	"Cyantosh0/go-swag/model"
 	"Cyantosh0/go-swag/route"
-	"fmt"
+	"log"
 
 	_ "github.com/go-sql-driver/mysql"
-	"github.com/jinzhu/gorm"
-	_ "github.com/jinzhu/gorm/dialects/mysql"
+	"github.com/joho/godotenv"
 )
 
 func main() {
-	db, err := gorm.Open("mysql", config.DbURL(config.BuildDBConfig()))
+	err := godotenv.Load(".env")
 	if err != nil {
-		fmt.Println("Status:", err)
+		log.Fatalf("Error loading .env file")
 	}
-	defer db.Close()
 
-	// db.AutoMigrate(&model.User{})
+	db := config.SetupDatabase()
+	db.AutoMigrate(&model.User{})
 
 	r := route.SetupRouter()
 	r.Run()

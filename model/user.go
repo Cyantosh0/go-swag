@@ -1,9 +1,6 @@
 package model
 
 import (
-	_ "github.com/go-sql-driver/mysql"
-	_ "github.com/jinzhu/gorm/dialects/mysql"
-
 	"Cyantosh0/go-swag/config"
 )
 
@@ -16,7 +13,7 @@ type User struct {
 }
 
 func (u *User) TableName() string {
-	return "user"
+	return "users"
 }
 
 //GetAllUsers Fetch all user data
