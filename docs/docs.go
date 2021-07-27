@@ -54,6 +54,9 @@ var doc = `{
                 "consumes": [
                     "application/json"
                 ],
+                "tags": [
+                    "Users"
+                ],
                 "summary": "Create new user based on paramters",
                 "parameters": [
                     {

@@ -28,6 +28,7 @@ func GetUsers(c *gin.Context) {
 // CreateUser ... Create User
 // @Summary Create new user based on paramters
 // @Description Create new user
+// @Tags Users
 // @Accept json
 // @Param user body model.User true "User Data"
 // @Success 200 {object} object

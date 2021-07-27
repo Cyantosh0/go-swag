@@ -63,6 +63,8 @@ paths:
           schema:
             type: object
       summary: Create new user based on paramters
+      tags:
+      - Users
   /{id}:
     get:
       description: get user by ID
