@@ -7,10 +7,12 @@ definitions:
       email:
         type: string
       id:
-        type: integer
+        type: string
       name:
         type: string
       phone:
+        type: string
+      user_number:
         type: string
     type: object
 host: localhost:5000
@@ -75,8 +77,12 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/model.User'
+        "400":
+          description: Bad Request
+          schema:
+            type: object
         "404":
-          description: Not Found
+          description: Bad Request
           schema:
             type: object
       summary: Get one user

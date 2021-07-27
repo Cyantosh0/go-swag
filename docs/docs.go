@@ -111,8 +111,14 @@ var doc = `{
                             "$ref": "#/definitions/model.User"
                         }
                     },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
                     "404": {
-                        "description": "Not Found",
+                        "description": "Bad Request",
                         "schema": {
                             "type": "object"
                         }
@@ -132,12 +138,15 @@ var doc = `{
                     "type": "string"
                 },
                 "id": {
-                    "type": "integer"
+                    "type": "string"
                 },
                 "name": {
                     "type": "string"
                 },
                 "phone": {
+                    "type": "string"
+                },
+                "user_number": {
                     "type": "string"
                 }
             }

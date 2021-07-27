@@ -54,12 +54,19 @@ func CreateUser(c *gin.Context) {
 // @Tags Users
 // @Param id path string true "User ID"
 // @Success 200 {object} model.User
-// @Failure 404 {object} object
+// @Failure 400,404 {object} object
 // @Router /{id} [get]
 func GetUserByID(c *gin.Context) {
 	id := c.Params.ByName("id")
+
+	userID, err := model.StringToBinaryUUID(id)
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
 	var user model.User
-	err := model.GetUserByID(&user, id)
+	err = model.GetUserByID(&user, userID)
 	if err != nil {
 		c.JSON(http.StatusNotFound, gin.H{"error": err.Error()})
 		return
